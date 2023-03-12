@@ -1,1 +1,0 @@
-# demoyabe-node
