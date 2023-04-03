@@ -1,4 +1,12 @@
 # Node.js
+
+pool:
+  name: Azure Pipelines
+  demands:
+  - npm
+  - node.js
+
+steps:
 - task: Npm@1
   inputs:
     command: 'install'
