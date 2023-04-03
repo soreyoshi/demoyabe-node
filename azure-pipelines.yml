@@ -1,32 +1,12 @@
 # Node.js
+- task: Npm@1
+  inputs:
+    command: 'install'
+
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: '検証用サブスクリプション(736a95bb-7bc5-4237-a510-96c1c4f7bf2d)'
     appType: 'webApp'
-    WebAppName: 'demoyabe-webapp-pipeline'
+    WebAppName: 'demoyabe-webapp-pipeline-node'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: '検証用サブスクリプション(736a95bb-7bc5-4237-a510-96c1c4f7bf2d)'
-    appType: 'webApp'
-    appName: 'demoyabe-webapp-pipeline'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
