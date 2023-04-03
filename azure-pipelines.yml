@@ -1,4 +1,11 @@
 # Node.js
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: '検証用サブスクリプション(736a95bb-7bc5-4237-a510-96c1c4f7bf2d)'
+    appType: 'webApp'
+    WebAppName: 'demoyabe-webapp-pipeline'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - task: AzureWebApp@1
   inputs:
     azureSubscription: '検証用サブスクリプション(736a95bb-7bc5-4237-a510-96c1c4f7bf2d)'
@@ -9,9 +16,6 @@
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
-- trigger:
-  main
 
 pool:
   vmImage: ubuntu-latest
