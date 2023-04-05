@@ -1,6 +1,6 @@
 async function add() {
     var a = 0;
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 1000; i++) {
         a += 1;
     }
     return a;
@@ -8,7 +8,7 @@ async function add() {
 
 module.exports = async function (context, req) {
     context.log('開始');
-    const x = add();
+    const x = await add();
     context.log(`count: ${x}`);
     context.res = {
         body: context.executionContext.invocationId
