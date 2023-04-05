@@ -3,15 +3,21 @@ async function add() {
     for (var i = 0; i < 1000; i++) {
         a += 1;
     }
+    
+    return a;
+}
+
+async function loga() {
+    const a = add ();
+    context.log(`count: ${a}`)
     return a;
 }
 
 module.exports = async function (context, req) {
     context.log('count 開始');
-    const x = await add();
-    context.log(`count: ${x}`);
+    const x = await loga();
     context.res = {
-        body: context.executionContext.invocationId
+        body: 'counted'
     };
     context.log('count 終了');
 }
