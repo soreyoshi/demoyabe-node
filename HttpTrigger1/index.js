@@ -1,16 +1,11 @@
-// Recommended pattern
-const fs = require('fs');
-const util = require('util');
-const readFileAsync = util.promisify(fs.readFile);
-
-module.exports = async function (context) {
-    let data;
-    try {
-        data = readFileAsync('./hello.txt');
-    } catch (err) {
-        context.log.error('ERROR', err);
-        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
-        throw err;
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    const a = 0;
+    for (var i = 0; i < 10000; i++) {
+        a += 1;
     }
-    context.log(`Data from file: ${data}`);
+    context.log(`count: ${a}`);
+    context.res = {
+        body: context.executionContext.invocationId
+    };
 }
