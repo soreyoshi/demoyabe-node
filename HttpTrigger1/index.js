@@ -7,11 +7,11 @@ async function add() {
 }
 
 module.exports = async function (context, req) {
-    context.log('開始');
+    context.log('count 開始');
     const x = await add();
     context.log(`count: ${x}`);
     context.res = {
         body: context.executionContext.invocationId
     };
-    context.log('終了');
+    context.log('count 終了');
 }
