@@ -4,7 +4,7 @@ module.exports = async function (context, req) {
     for (var i = 0; i < 10000; i++) {
         a += 1;
     }
-    context.log(`count: ${a}`);
+    await ontext.log(`count: ${a}`);
     context.res = {
         body: context.executionContext.invocationId
     };
