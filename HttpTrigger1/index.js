@@ -7,7 +7,7 @@ async function add() {
 }
 
 async function loga() {
-    const a = add ();
+    const a = add();
     context.log(`count: ${a}`);
     return a;
 }
