@@ -1,5 +1,5 @@
 async function add() {
-    const a = 0;
+    var a = 0;
     for (var i = 0; i < 100; i++) {
         a += 1;
     }
@@ -7,10 +7,11 @@ async function add() {
 }
 
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-    const a = await add();
-    context.log(`count: ${a}`);
+    context.log('開始');
+    const x = add();
+    context.log(`count: ${x}`);
     context.res = {
         body: context.executionContext.invocationId
     };
+    context.log('終了');
 }
