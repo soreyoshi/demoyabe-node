@@ -6,14 +6,14 @@ async function add() {
     return a;
 }
 
-async function loga() {
+async function loga(context) {
     const x = await add();
     context.log(`count: ${x}`);
 }
 
 module.exports = async function (context, req) {
     context.log('count 開始');
-    loga();
+    loga(context);
     context.res = {
         status: 200
     };
