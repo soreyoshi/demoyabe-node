@@ -8,13 +8,13 @@ async function add() {
 
 async function loga(context) {
     const x = await add();
-    context.log(`count: ${x}`);
+    context.log(`カウント: ${x}`);
     return x;
 }
 
 module.exports = async function (context, req) {
-    context.log('count 開始');
+    context.log('カウント 開始');
     const x = await loga(context);
     context.res.body = `counted ${x} \n`;
-    context.log('count 終了');
+    context.log('カウント 終了');
 }
