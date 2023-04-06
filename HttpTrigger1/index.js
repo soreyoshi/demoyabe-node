@@ -9,13 +9,12 @@ async function add() {
 async function loga(context) {
     const x = await add();
     context.log(`count: ${x}`);
+    return x;
 }
 
 module.exports = async function (context, req) {
     context.log('count 開始');
-    loga(context);
-    context.res = {
-        status: 200
-    };
+    const x = await loga(context);
+    context.res.body = `counted ${x}`;
     context.log('count 終了');
 }
