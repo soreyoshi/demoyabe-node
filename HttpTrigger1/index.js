@@ -14,7 +14,7 @@ async function loga(context) {
 
 module.exports = async function (context, req) {
     context.log('count 開始');
-    const x = await loga(context);
-    context.res.body = `counted ${x}`;
+    const x = loga(context);
+    context.res.body = `counted ${x} \n`;
     context.log('count 終了');
 }
