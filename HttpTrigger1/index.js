@@ -17,4 +17,5 @@ module.exports = async function (context, req) {
     const x = await loga(context);
     context.res.body = `counted ${x} \n`;
     context.log('カウント 終了');
+    var deprecate = require('depd')('my-module')
 }
